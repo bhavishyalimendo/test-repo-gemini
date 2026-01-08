@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import prisma from '../prisma';
+import { prisma } from '../prisma';
 
 export const getTodos = async (req: Request, res: Response) => {
     try {
@@ -23,6 +23,7 @@ export const createTodo = async (req: Request, res: Response) => {
         });
         res.status(201).json(todo);
     } catch (error) {
+        console.error('Error creating todo:', error);
         res.status(500).json({ error: 'Failed to create todo' });
     }
 };

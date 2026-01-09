@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { prisma } from '../prisma';
 
-export const getTodos = async (req: Request, res: Response) => {
+const getTodos = async (req: Request, res: Response) => {
     try {
         const todos = await prisma.todo.findMany({
             orderBy: { createdAt: 'desc' }
@@ -12,7 +12,7 @@ export const getTodos = async (req: Request, res: Response) => {
     }
 };
 
-export const createTodo = async (req: Request, res: Response) => {
+const createTodo = async (req: Request, res: Response) => {
     const { name, description } = req.body;
     try {
         const todo = await prisma.todo.create({
@@ -28,7 +28,7 @@ export const createTodo = async (req: Request, res: Response) => {
     }
 };
 
-export const updateTodo = async (req: Request, res: Response) => {
+const updateTodo = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { name, description, isCompleted } = req.body;
     try {
@@ -46,7 +46,7 @@ export const updateTodo = async (req: Request, res: Response) => {
     }
 };
 
-export const deleteTodo = async (req: Request, res: Response) => {
+const deleteTodo = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
         await prisma.todo.delete({
@@ -57,3 +57,12 @@ export const deleteTodo = async (req: Request, res: Response) => {
         res.status(500).json({ error: 'Failed to delete todo' });
     }
 };
+
+const todoController = {
+    getTodos,
+    createTodo,
+    updateTodo,
+    deleteTodo,
+};
+
+export default todoController;

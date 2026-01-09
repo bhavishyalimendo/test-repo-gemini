@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav className="glass-panel" style={{ borderRadius: '0', marginBottom: '2rem', borderLeft: 'none', borderRight: 'none', borderTop: 'none' }}>
             <div className="page-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem' }}>
                 <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', background: 'linear-gradient(to right, #3b82f6, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', margin: 0 }}>
-                    GeminiTodo
+                    Todo App
                 </h1>
                 <div style={{ display: 'flex', gap: '1rem' }}>
                     <Link
